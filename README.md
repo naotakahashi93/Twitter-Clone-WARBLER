@@ -28,3 +28,7 @@ The app allows users to create accounts, post/like/delete tweets and follow othe
 - Follow and unfollow other users to stay updated with their tweets.
 - View your profile and see your tweets, followers, and followed users.
 
+## Acknowledgments
+
+The landing page image was created using [Leonardo.ai](https://leonardo.ai/) and [Canva](https://www.canva.com/).
+
