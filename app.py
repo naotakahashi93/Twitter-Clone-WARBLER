@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
+from random import sample
 
 from forms import UserAddForm, LoginForm, MessageForm, UserEditForm
 from models import db, connect_db, User, Message, bcrypt 
@@ -12,7 +13,7 @@ CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
 
 # Get DB_URI from environ variable (useful for production/testing) or,
-# if not set there, use development local db.
+# if not set there, use development  db.
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     os.environ.get('DATABASE_URL', 'postgresql:///warbler'))
 
@@ -47,6 +48,7 @@ def do_login(user):
     """Log in user."""
 
     session[CURR_USER_KEY] = user.id
+    
 
 
 def do_logout():
@@ -126,7 +128,6 @@ def logout():
 @app.route('/users')
 def list_users():
     """Page with listing of users.
-
     Can take a 'q' param in querystring to search by that username.
     """
 
@@ -358,15 +359,23 @@ def homepage():
     - anon users: no messages
     - logged in: 100 most recent messages of followed_users
     """
-
     if g.user:
         messages = (Message
                     .query
                     .order_by(Message.timestamp.desc())
                     .limit(100)
                     .all())
-
-        return render_template('home.html', messages=messages)
+        
+        followed_user_ids = [user.id for user in g.user.following]
+        followed_user_ids.append(g.user.id)
+        random_users =  (db.session.query(User)
+                    .filter(User.id.notin_(followed_user_ids))
+                    .order_by(db.func.random())
+                    .limit(5)
+                    .all())    
+    
+        print(followed_user_ids, "TESTING following_users", random_users)
+        return render_template('home.html', messages=messages, random_users = random_users)
 
     else:
         return render_template('home-anon.html')

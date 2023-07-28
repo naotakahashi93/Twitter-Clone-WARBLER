@@ -209,6 +209,7 @@ nav + .container {
 #header-image{
   height: 360px;
   object-fit: cover;
+  width: 100%;
 }
 
 
@@ -324,6 +325,7 @@ nav + .container {
 .user-card > div {
   position: absolute;
   background: white;
+  border-radius: 5px;
 }
 
 .user-card form {
@@ -400,11 +402,11 @@ p.card-bio {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: 2%;
   width: 100vw;
   left: 0;
   z-index: -1;
-  background-image: url("/static/images/signed-out-home.jpg");
+  background-image: url("/static/images/WarblerHome.jpg");
   background-size: cover;
   background-position: center center;
   color: #fff;
@@ -421,7 +423,7 @@ p.card-bio {
 }
 
 .home-hero h1 {
-  margin-bottom: 4rem;
+  margin-bottom: 1.3rem;
 }
 
 .home-hero:before {
@@ -431,7 +433,16 @@ p.card-bio {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.221);
+}
+
+#home-text-wrapper{
+  width:50%;
+  right: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  margin-top: 7%;
 }
 
 /* ============================== Signed in Home */
@@ -470,6 +481,64 @@ p.card-bio {
 #home-aside .stat h4 {
   text-align: left;
 }
+
+#suggested-users-text{
+  font-size: 15px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+#random-users{
+  margin-top: 3px;
+  display: flex;
+  flex-direction: column; 
+  background-color: #c4c8cae6;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+#random-users > .user-card {
+  margin-top: 4px;
+  position: relative;
+  display: flex;
+  justify-content:space-between;
+}
+
+#random-users > .user-card p.card-bio{
+margin: 0;
+}
+
+#random-users > .user-card .card-contents{
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#random-users > .user-card .card-link{
+  display: inline-block;
+  margin: 0;
+}
+
+#random-users > .user-card .image-wrapper,
+#random-users > .user-card .card-inner{
+  margin: 0;
+  border-radius: 5px;
+  align-items: center;
+  }
+  #random-users > .user-card .card-image{
+    transform: translate(-50%, -50%);
+    top:35px;
+    left: 50%;
+  }
+  #random-users > .user-card #suggested-user-handle,
+  #random-users > .user-card form{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 /* ========================== Signup/Login */
 
