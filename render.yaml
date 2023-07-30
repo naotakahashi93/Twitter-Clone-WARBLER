@@ -1,0 +1,4 @@
+version: 1
+pythonVersion: 3.7
+buildCommand: pip install -r requirements.txt
+startCommand: gunicorn app:app
