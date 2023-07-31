@@ -13,7 +13,7 @@ Flask-DebugToolbar==0.13.1
 Flask-SQLAlchemy==3.0.2
 Flask-WTF==1.0.1
 greenlet==2.0.1
-gunicorn
+gunicorn==21.2.0
 idna==3.4
 ipython==7.0.1
 ipython-genutils==0.2.0
@@ -21,10 +21,12 @@ itsdangerous==2.1.2
 jedi==0.13.1
 Jinja2==3.1.2
 MarkupSafe==2.1.1
+packaging==23.1
 parso==0.3.1
 pexpect==4.6.0
 pickleshare==0.7.5
 prompt-toolkit==2.0.5
+psycopg2==2.9.6
 psycopg2-binary==2.8.4
 ptyprocess==0.6.0
 pycparser==2.19
