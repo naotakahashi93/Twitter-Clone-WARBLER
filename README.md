@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Tech Stack](#techstack)
+- [Tech Stack](#tech-stack)
 - [Usage](#usage)
 - [Acknowledgments](#acknowledgments)
 
